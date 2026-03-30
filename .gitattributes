@@ -1,0 +1,12 @@
+# Normalize text files to LF in the repository.
+* text=auto eol=lf
+
+*.md text eol=lf
+*.plist text eol=lf
+*.resolved text eol=lf
+*.sh text eol=lf
+*.swift text eol=lf
+
+*.caf binary
+*.icns binary
+*.png binary

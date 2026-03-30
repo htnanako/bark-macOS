@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - CHANGELOG.md
+      - version.txt
+
+jobs:
+  test-and-package:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show Swift version
+        run: swift --version
+
+      - name: Run tests
+        run: swift test
+
+      - name: Smoke test production packaging
+        run: ./scripts/package-app.sh --configuration release --version "$(tr -d '[:space:]' < version.txt)" --build-number 0 --bundle-id "me.fin.bark.macos.ci" --output-dir "$PWD/dist/ci"
+
+      - name: Smoke test dmg packaging
+        run: ./scripts/create-dmg.sh --app-path "$PWD/dist/ci/BarkMac.app" --output-path "$PWD/dist/BarkMac-ci.dmg" --volume-name "BarkMac CI"

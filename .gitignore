@@ -1,0 +1,56 @@
+# macOS metadata
+.DS_Store
+
+# Swift Package Manager build state
+.build/
+.swiftpm/
+
+# Xcode user-specific files
+DerivedData/
+*.xcuserstate
+*.xcuserdatad/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# Test results and coverage output
+*.xcresult
+*.profdata
+*.profraw
+coverage/
+
+# Build artifacts and release bundles
+*.app
+*.dmg
+*.pkg
+*.dSYM/
+
+# Generated packaging output
+dist/
+Resources/BarkMac.icns
+Resources/BarkMac.iconset/
+
+# Local development helpers
+.local/
+scripts/package-dev.sh
+scripts/dev/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Logs
+*.log
+
+# Editor settings
+.idea/
+.vscode/
+
+# Editor and patch leftovers
+*.orig
+*.swp
+*.tmp
+*~
